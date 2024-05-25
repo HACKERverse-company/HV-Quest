@@ -12,14 +12,22 @@ jobs:
     steps:
     - uses: actions/checkout@v3 
 
+    # Debug step to list files in the root of the checked-out repository
+    - name: List root directory for debug
+      run: ls -la
+
+    # Debug step to list files in the expected directory
+    - name: List HV-Quest directory for debug
+      run: ls -la HV-Quest/_work/HV-Quest/HV-Quest/
+
     # Clean the destination directory
     - name: Clean Destination Directory
       run: sudo rm -rf /var/www/html/*
 
     # Copy static files to the destination directory
     - name: Copy Static Files
-      run: sudo cp -r ./HV-Quest/_work/HV-Quest/HV-Quest/* /var/www/html/
-      
+      run: sudo cp -r HV-Quest/_work/HV-Quest/HV-Quest/* /var/www/html/
+
     # Restart Nginx to apply changes
     - name: Restart Nginx
       run: sudo service nginx restart
