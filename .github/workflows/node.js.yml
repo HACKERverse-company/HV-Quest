@@ -18,8 +18,8 @@ jobs:
 
     # Copy static files to the destination directory
     - name: Copy Static Files
-      run: sudo cp -r ./home/ubuntu/HV-Quest/_work/HV-Quest/HV-Quest/* /var/www/html/
-
+      run: sudo cp -r ./HV-Quest/_work/HV-Quest/HV-Quest/* /var/www/html/
+      
     # Restart Nginx to apply changes
     - name: Restart Nginx
       run: sudo service nginx restart
